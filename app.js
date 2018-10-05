@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const usersRoutes = require('./routes/user');
+const homeRoutes = require('./routes/home');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use('/', homeRoutes);
 app.use('/auth', usersRoutes);
 
 app.get('/favicon.ico', (req, res) => res.status(204));
