@@ -28,7 +28,6 @@ exports.create_user = (req, res, next) => {
                                     _id: new mongoose.Types.ObjectId(),
                                     firstname: req.body.firstname,
                                     lastname: req.body.lastname,
-                                    avatar: req.file.path,
                                     birthday: req.body.birthday,
                                     email: req.body.email,
                                     password: hash,
@@ -58,6 +57,10 @@ exports.create_user = (req, res, next) => {
                 error: err
             })
         });
+}
+
+exports.upload_avatar = (req, res, next) => {
+
 }
 
 exports.user_login = (req, res, next) => {
